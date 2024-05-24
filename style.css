@@ -18,7 +18,9 @@ nav ul {
 .red{
     background-color:red;
 }
-button{
+div{
+    width:25px;
+    height:25px;
     background-color:green;
 }
 nav ul li {
