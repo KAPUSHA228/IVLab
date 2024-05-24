@@ -1,3 +1,4 @@
+:root{}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -17,6 +18,9 @@ nav ul {
 }
 .red{
     background-color:red;
+}
+.row{
+    display: grid;
 }
 div{
     width:25px;
