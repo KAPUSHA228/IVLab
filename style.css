@@ -15,6 +15,12 @@ nav ul {
     padding: 0;
     text-align: center;
 }
+.red{
+    background-color:red;
+}
+button{
+    background-color:green;
+}
 nav ul li {
     display: inline;
     margin: 0 10px;
