@@ -1,5 +1,4 @@
 const switcher = 1;
-
 // Функция для обновления случайного значения в указанном элементе
 function updateRandomValue() {
      const randomNum = Math.floor(Math.random() * 100); 
