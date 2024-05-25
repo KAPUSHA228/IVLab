@@ -1,5 +1,4 @@
 class Sensor{
-    
     constructor(number, logs,isOn){
         this.div=document.querySelector('#sensors');
         this.divLED=document.createElement('div');
@@ -23,7 +22,7 @@ class Sensor{
     switchColor(){
         this.divLED.classList.toggle('red');
         this.switcher = (this.switcher===1)?0:1;
- }
+    }
     render(){
         this.divInfo.textContent= this.logs;
         this.div.append(this.divLED);
@@ -34,3 +33,12 @@ class Sensor{
     }
 }
 const person = new Sensor(1,0,true);
+const el=document.querySelector('#sensors');
+el.addEventListener('mouseover',function(event){
+    console.log('hi');
+    el.style.backgroundColor='lightblue';
+});
+el.addEventListener('mouseleave',function(event){
+    console.log('hi');
+    el.style.backgroundColor='red';
+});
