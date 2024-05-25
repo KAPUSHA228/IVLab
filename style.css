@@ -16,13 +16,23 @@ nav ul {
     text-align: center;
 }
 .red{
-    background-color:rgb(0, 0, 0);
+    background-color:yellow;
+}
+.Info{
+    background-color: mediumslateblue;
+    text-align: center;
+    margin: 2px;
+    padding: 2px 0px 0px 0px;
+}
+.LED{
+    border-radius: 20px 20px 20px 20px;
+    border: solid 2px;
 }
 .row{
     display: grid;
 }
 #sensors{
-    background-color:blue;
+    background-color:steelblue;
 }
 div{
     width:25px;
