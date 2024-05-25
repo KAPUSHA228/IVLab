@@ -21,6 +21,9 @@ nav ul {
 .row{
     display: grid;
 }
+#sensors{
+    background-color:blue;
+}
 div{
     width:25px;
     height:25px;
