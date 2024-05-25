@@ -29,10 +29,6 @@ class Sensor{
     }
 }
 const person = new Sensor(1,0,true);
-//person.render();
-//person.updateRandomValue();
-//setInterval(person.updateRandomValue, 2000);
-//setInterval(()=>person.updateRandomValue(), 2000);
 // const switcher = 1;
 // Функция для обновления случайного значения в указанном элементе
 
@@ -41,5 +37,4 @@ const person = new Sensor(1,0,true);
 //     switcher = (switcher===1)?0:1;
 // }
 
-// setInterval(updateRandomValue, 2000);
 // setInterval(switchColor, 1000);
