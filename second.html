@@ -1,10 +1,18 @@
+<!DOCTYPE html>
 <html>
-    <body>
+    <body contextmenu="myContextMenu">
         <div>pam</div>
+        <menu type="context" id="myContextMenu">
+            <a href="#">Пункт меню 1</a>
+            <a href="#">Пункт меню 2</a>
+            <a href="#">Пункт меню 3</a>
+        </menu>
     </body>
     <style>
+        a menu{
+            z-index: 1;
+        }
         body{
-            
             background-image: url('https://reefcentral.ru/forum/uploads/gallery/album_166/gallery_1019_166_19116.jpg');
             background-size: cover;
             background-position: center;
