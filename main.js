@@ -60,7 +60,6 @@ el.addEventListener('mouseleave', function (event) {
     el.style.backgroundColor = 'dimgrey';
 });
 el2.forEach(element => {
-    //console.log(element.parentElement.id);
     element.addEventListener('click', function () {
         if (this.hasMenu === true) {
             document.querySelector('#menushka').remove();
@@ -69,13 +68,13 @@ el2.forEach(element => {
             // const menu = document.createElement('div');
             const button = document.createElement('button');
             button.id = 'menushka';
-            button.innerText = 'Вырубить';
+            button.innerText = 'Врубить';
             //menu.append(button);
             element.parentElement.insertAdjacentElement('afterend', button);
             const sensorInstance = mas[element.parentElement.id];
             button.onclick = function () {
                 sensorInstance.toSwitch();
-                // button.innerText('Врубить');
+                // button.innerText('Вырубить');
             };
         }
         this.hasMenu = !this.hasMenu;
@@ -83,23 +82,36 @@ el2.forEach(element => {
 });
 const canvas = document.querySelector('#myChart');
 const ctx = canvas.getContext('2d');
-
-
-const maxValue = 100;
-const barWidth = canvas.width / mas.length / 5;//ширина палочек
+const canvasStyles = getComputedStyle(canvas);
+const canvasHeight = parseInt(canvasStyles.getPropertyValue('height'), 10);
+canvas.height += 50;
+console.log(canvas.height);
+const maxValue = 200;
+const barWidth = canvas.width / mas.length / 20;//ширина палочек
 const barSpacing = 10;//расстояние между палочками
+ctx.fillStyle = 'rgb(96,130,192)';
 
-ctx.fillStyle = 'rgb(196,130,192)';
 function doGrafik() {
+    let i = 0.5;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    mas.forEach((value, index) => {
-        // console.log(value.logs);
-        const barHeight = (value.logs / maxValue) * canvas.height;
-        const x = index * (barWidth + barSpacing);
-        const y = canvas.height - barHeight;
-        ctx.fillRect(x, y, barWidth, barHeight);
-    });
+    ctx.fillText('Колебания жопы:', 50, 20);
+    // Пример меток на оси Y
+    ctx.fillText('0', 5, canvas.height);
+    ctx.fillText('25-', 1, canvas.height - 25);
+    ctx.fillText('50-', 1, canvas.height - 50);
+    ctx.fillText('75-', 1, canvas.height - 75);
+    ctx.fillText('100-', 1, canvas.height - 100);
+    ctx.moveTo(0, canvas.height); // Начальная точка шкалы
+    ctx.lineTo(0, 50); // Конечная точка шкалы
+    ctx.stroke();
+    let average = 0;
+    mas.forEach((value) => { average += value.logs; });
+    const barHeight = average;
+    const x = ++i * (barWidth + barSpacing);
+    const y = canvas.height - barHeight;
+    ctx.fillRect(x, y, barWidth, barHeight);
+    //console.log(average/mas.length);
 }
-setInterval(doGrafik,2000);
+setInterval(doGrafik, 2000);
 
 
