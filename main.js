@@ -51,21 +51,25 @@ const el=document.querySelector('#sensors');
 const el2=document.querySelectorAll('#inf');
 console.log(el2);
 el.addEventListener('mouseover',function(event){
-    el.style.backgroundColor='rgb(127, 180, 70)';
+    el.style.backgroundColor='grey';
 });
 el.addEventListener('mouseleave',function(event){
-    el.style.backgroundColor='steelblue';
+    el.style.backgroundColor='dimgrey';
 });
 el2.forEach(element=>{
     element.addEventListener('mouseover',function(){
         const menu = document.createElement('div');
+        const button = document.createElement('button');
+        
         menu.id='menushka';
+        menu.append(button);
         element.insertAdjacentElement('afterend',menu);
     });
 });
 el2.forEach(element => {
     element.addEventListener('mouseleave', function () {
-        document.querySelectorAll('#menushka').forEach(local=>{
-            local.remove();});
+        // document.querySelectorAll('#menushka').forEach(local=>{
+        //     local.remove();});
+        document.querySelector('#menushka').remove();
     });
 });
