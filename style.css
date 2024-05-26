@@ -15,8 +15,11 @@ nav ul {
     padding: 0;
     text-align: center;
 }
+.white{
+    background-color: gray;
+}
 .red{
-    background-color:yellow;
+    background-color:orange;
 }
 .Info{
     background-color: mediumslateblue;
@@ -37,7 +40,7 @@ nav ul {
 div{
     width:25px;
     height:25px;
-    background-color:green;
+    background-color:chartreuse;
 }
 nav ul li {
     display: inline;
