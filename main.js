@@ -42,15 +42,12 @@ class Sensor {
         this.div.append(this.divLED);
         this.div.append(this.divInfo);
         this.divParent.append(this.div);
-        console.log(this.div);
     }
 }
 const person = new Sensor(1, 0, true);
 const person2 = new Sensor(2, 0, false);
-console.log(person);
 const el = document.querySelector('#sensors');
 const el2 = document.querySelectorAll('#inf');
-console.log(el2);
 el.addEventListener('mouseover', function (event) {
     el.style.backgroundColor = 'grey';
 });
@@ -63,7 +60,7 @@ el2.forEach(element => {
         const button = document.createElement('button');
         menu.id = 'menushka';
         menu.append(button);
-        element.insertAdjacentElement('afterend', menu);
+        element.parentElement.insertAdjacentElement('afterend', menu);
     });
 });
 el2.forEach(element => {

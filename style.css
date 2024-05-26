@@ -18,8 +18,11 @@ nav ul {
 }
 
 .pedestal {
-    width: 5%;
-    margin: 1px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 33px;
+    margin: 3px;
     height: 60px;
     background-color: chocolate;
 
@@ -28,10 +31,8 @@ nav ul {
 .container {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-around; */
     align-items: flex-start;
     flex-wrap: wrap;
-    align-content: flex-start;
     width: 100%;
     height: 200px;
 }
@@ -47,13 +48,13 @@ nav ul {
 .Info {
     background-color: mediumslateblue;
     text-align: center;
-    width:80%;
     margin: 2px;
-    padding: 2px 0px 0px 0px;
+    padding: 2px;
 }
 
 .LED {
-    border-radius: 20px 20px 20px 20px;
+    margin: 2px;
+    border-radius: 20px;
     border: solid 2px;
 }
 
