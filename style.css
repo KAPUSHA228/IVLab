@@ -4,55 +4,83 @@ body {
     padding: 0;
     background-color: #f0f0f0;
 }
+
 header {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 10px 0;
 }
+
 nav ul {
-    list-style-type: none;
     padding: 0;
     text-align: center;
 }
-.white{
+
+.pedestal {
+    width: 5%;
+    margin: 1px;
+    height: 60px;
+    background-color: chocolate;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+    align-items: flex-start;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    width: 100%;
+    height: 200px;
+}
+
+.white {
     background-color: gray;
 }
-.red{
-    background-color:orange;
+
+.red {
+    background-color: orange;
 }
-.Info{
+
+.Info {
     background-color: mediumslateblue;
     text-align: center;
+    width:80%;
     margin: 2px;
     padding: 2px 0px 0px 0px;
 }
-.LED{
+
+.LED {
     border-radius: 20px 20px 20px 20px;
     border: solid 2px;
 }
-.row{
-    display: grid;
+
+#sensors {
+    background-color: dimgray;
 }
-#sensors{
-    background-color:dimgray;
+
+div {
+    width: 25px;
+    height: 25px;
+    background-color: chartreuse;
 }
-div{
-    width:25px;
-    height:25px;
-    background-color:chartreuse;
-}
+
 nav ul li {
     display: inline;
     margin: 0 10px;
 }
+
 nav ul li a {
     color: #fff;
     text-decoration: none;
 }
+
 main {
     padding: 20px;
 }
+
 footer {
     background-color: #333;
     color: #fff;
