@@ -51,7 +51,6 @@ const person = new Sensor(true);
 mas.push(person);
 const person2 = new Sensor(false);
 mas.push(person2);
-//console.log(mas);
 const el = document.querySelector('#sensors');
 const el2 = document.querySelectorAll('#inf');
 el.addEventListener('mouseover', function (event) {
@@ -61,7 +60,7 @@ el.addEventListener('mouseleave', function (event) {
     el.style.backgroundColor = 'dimgrey';
 });
 el2.forEach(element => {
-    console.log(element.parentElement.id);
+    //console.log(element.parentElement.id);
     element.addEventListener('click', function () {
         if (this.hasMenu === true) {
             document.querySelector('#menushka').remove();
@@ -76,9 +75,31 @@ el2.forEach(element => {
             const sensorInstance = mas[element.parentElement.id];
             button.onclick = function () {
                 sensorInstance.toSwitch();
-               // button.innerText('Врубить');
+                // button.innerText('Врубить');
             };
         }
         this.hasMenu = !this.hasMenu;
     });
 });
+const canvas = document.querySelector('#myChart');
+const ctx = canvas.getContext('2d');
+
+
+const maxValue = 100;
+const barWidth = canvas.width / mas.length / 5;//ширина палочек
+const barSpacing = 10;//расстояние между палочками
+
+ctx.fillStyle = 'rgb(196,130,192)';
+function doGrafik() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    mas.forEach((value, index) => {
+        // console.log(value.logs);
+        const barHeight = (value.logs / maxValue) * canvas.height;
+        const x = index * (barWidth + barSpacing);
+        const y = canvas.height - barHeight;
+        ctx.fillRect(x, y, barWidth, barHeight);
+    });
+}
+setInterval(doGrafik,2000);
+
+
