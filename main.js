@@ -1,19 +1,18 @@
 class Sensor {
     constructor(number, logs, isOn) {
-        this.divParent = document.querySelector('#sensors');
-        this.div = document.createElement('div');
-        this.div.classList.add('pedestal');
-        this.divLED = document.createElement('div');
-        this.divInfo = document.createElement('div');
-        this.divParent.classList.add('container');
-
-        this.divInfo.id = 'inf';
-        this.switcher = 1;
         this.number = number;
         this.logs = logs;
         this.isOn = isOn;
+        this.switcher = 1;
+        this.divParent = document.querySelector('#sensors');
+        this.divParent.classList.add('container');
+        this.div = document.createElement('div');
+        this.div.classList.add('pedestal');
+        this.divLED = document.createElement('div');
         this.divLED.classList.add('LED');
+        this.divInfo = document.createElement('div');
         this.divInfo.classList.add('Info');
+        this.divInfo.id = 'inf';
         this.render();
         setInterval(() => this.updateRandomValue(), 2000);
         setInterval(() => this.switchColor(), 1000);
@@ -47,7 +46,7 @@ class Sensor {
     }
 }
 const person = new Sensor(1, 0, true);
-const person2 = new Sensor(1, 0, false);
+const person2 = new Sensor(2, 0, false);
 console.log(person);
 const el = document.querySelector('#sensors');
 const el2 = document.querySelectorAll('#inf');
