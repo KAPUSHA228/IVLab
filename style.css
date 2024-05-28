@@ -16,7 +16,26 @@ header {
     padding: 10px 0;
 }
 
-button {
+#creater {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #3498db;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#creater:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+#menushka {
     text-align: center;
     height: 40px;
     width: 70px;
