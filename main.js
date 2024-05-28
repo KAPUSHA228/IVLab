@@ -25,17 +25,20 @@ class Sensor {
         this.LED.classList.toggle('white');
     }
     updateRandomValue() {
-        if (this.isOn === true) {
+        if (this.isOn) {
             this.logs = Math.floor(Math.random() * 100);
             this.Info.textContent = this.logs;
         }
     }
     switchColor() {
-        if (this.isOn === true) {
-            this.LED.classList.toggle('red');
+        if (this.isOn) {
+            this.LED.classList.toggle('orange');
             this.switcher = (this.switcher) ? false : true;
         }
         else {
+            this.logs = 0;
+            this.Info.innerHTML = this.logs;
+            this.LED.classList.remove('orange');
             this.LED.classList.add('white');
         }
     }
@@ -85,7 +88,6 @@ const ctx = canvas.getContext('2d');
 const canvasStyles = getComputedStyle(canvas);
 const canvasHeight = parseInt(canvasStyles.getPropertyValue('height'), 10);
 canvas.height += 50;
-console.log(canvas.height);
 const maxValue = 200;
 const barWidth = canvas.width / mas.length / 20;//ширина палочек
 const barSpacing = 10;//расстояние между палочками
@@ -93,9 +95,15 @@ ctx.fillStyle = 'rgb(96,130,192)';
 
 function doGrafik() {
     let i = 0.5;
+    mas2=[];
+    mas.forEach((value)=>{
+        if(value.isOn){
+            mas2.push(value);
+        }});
+    nums=[];
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillText('Колебания жопы:', 40, 20);
-    //Пример меток на оси Y
+    //метки на оси Y
     ctx.fillText('0', 5, canvas.height);
     ctx.fillText('25-', 1, canvas.height - 25);
     ctx.fillText('50-', 1, canvas.height - 50);
@@ -105,12 +113,12 @@ function doGrafik() {
     ctx.lineTo(0, 50); // Конечная точка шкалы
     ctx.stroke();
     let average = 0;
-    mas.forEach((value) => { average += value.logs; });
-    const barHeight = average;
+    mas2.forEach((value) => { average += value.logs; });
+    const barHeight = average/mas2.length;
+    nums.push(barHeight);
     const x = ++i * (barWidth + barSpacing);
     const y = canvas.height - barHeight;
     ctx.fillRect(x, y, barWidth, barHeight);
-    //console.log(average/mas.length);
 }
 setInterval(doGrafik, 2000);
 
