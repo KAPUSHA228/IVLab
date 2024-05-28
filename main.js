@@ -94,8 +94,8 @@ ctx.fillStyle = 'rgb(96,130,192)';
 function doGrafik() {
     let i = 0.5;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillText('Колебания жопы:', 50, 20);
-    // Пример меток на оси Y
+    ctx.fillText('Колебания жопы:', 40, 20);
+    //Пример меток на оси Y
     ctx.fillText('0', 5, canvas.height);
     ctx.fillText('25-', 1, canvas.height - 25);
     ctx.fillText('50-', 1, canvas.height - 50);
