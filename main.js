@@ -118,7 +118,7 @@ function doGrafik() {
         }
     });
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillText('Колебания жопы:', 40, 20);
+    ctx.fillText('Колебания жопы (в пределах 100):', 40, 20);
     //метки на оси Y
     ctx.fillText('0', 5, canvas.height);
     ctx.fillText('25-', 1, canvas.height - 25);
