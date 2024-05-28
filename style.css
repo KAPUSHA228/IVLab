@@ -17,17 +17,17 @@ header {
 }
 
 #creater {
-    display: inline-block;
+    display: flex;
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
     color: #fff;
-    background-color: #3498db;
-    border: 2px solid #3498db;
+    background-color: #333;
+    border: 2px solid rgb(8, 117, 8);
     border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s;
+    cursor:pointer;
+    transition: all 1s;
 }
 
 #creater:hover {

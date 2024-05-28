@@ -52,7 +52,7 @@ class Sensor {
 const mas = [];
 const person = new Sensor(true);
 mas.push(person);
-const person2 = new Sensor(false);
+const person2 = new Sensor(true);
 mas.push(person2);
 const person3 = new Sensor(true);
 mas.push(person3);
@@ -104,13 +104,13 @@ const canvasStyles = getComputedStyle(canvas);
 const canvasHeight = parseInt(canvasStyles.getPropertyValue('height'), 10);
 canvas.height += 50;
 const maxValue = 200;
-const barWidth = canvas.width / mas.length / 20;//ширина палочек
+const barWidth = canvas.width /40;//ширина палочек
 const barSpacing = 10;//расстояние между палочками
 ctx.fillStyle = 'rgb(96,130,192)';
 nums = [];
 function doGrafik() {
     let i = 0.5;
-    if (nums.length === 15) { nums.shift(); }
+    if (nums.length === 16) { nums.shift(); }
     mas2 = [];
     mas.forEach((value) => {
         if (value.isOn) {
