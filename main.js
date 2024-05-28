@@ -92,15 +92,15 @@ const maxValue = 200;
 const barWidth = canvas.width / mas.length / 20;//ширина палочек
 const barSpacing = 10;//расстояние между палочками
 ctx.fillStyle = 'rgb(96,130,192)';
-
+nums = [];
 function doGrafik() {
     let i = 0.5;
+    if(nums.length===15){nums.shift();}
     mas2=[];
     mas.forEach((value)=>{
         if(value.isOn){
             mas2.push(value);
         }});
-    nums=[];
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillText('Колебания жопы:', 40, 20);
     //метки на оси Y
@@ -116,9 +116,12 @@ function doGrafik() {
     mas2.forEach((value) => { average += value.logs; });
     const barHeight = average/mas2.length;
     nums.push(barHeight);
-    const x = ++i * (barWidth + barSpacing);
-    const y = canvas.height - barHeight;
-    ctx.fillRect(x, y, barWidth, barHeight);
+    nums.forEach((value) => {
+        const x = ++i * (barWidth + barSpacing);
+        const y = canvas.height - value;
+        ctx.fillRect(x, y, barWidth, value);
+})
+    
 }
 setInterval(doGrafik, 2000);
 
