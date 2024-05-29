@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <body>
-    <div>pam</div>
-    <menu type="context" id="myContextMenu">
+    <div>1</div>
+    <!-- <menu type="context" id="myContextMenu">
         Context <a href="#">Пункт меню 1</a>
         <a href="#">Пункт меню 2</a>
         <a href="#">Пункт меню 3</a>
-    </menu>
+    </menu> -->
+    <script src="second.js"></script>
 </body>
 <style>
     a menu {
@@ -14,12 +15,14 @@
     }
 
     body {
+        display: flex;
         background-image: url('https://reefcentral.ru/forum/uploads/gallery/album_166/gallery_1019_166_19116.jpg');
         background-color: black;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
         background-attachment: fixed;
+
         top: 0;
         left: 0;
         width: 100%;
@@ -28,8 +31,20 @@
     }
 
     div {
+        position: absolute;
+        top:65%;
+        left:50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25px;
+        height: 25px;
+        text-align: center;
         background-color: blueviolet;
         z-index: 1;
-    }
+        margin: 2px;
+        border-radius: 20px;
+        border: solid 2px;   
+        }
 </style>
 </html>

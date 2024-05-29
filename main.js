@@ -62,6 +62,8 @@ const person5 = new Sensor(true);
 mas.push(person5);
 const person6 = new Sensor(true);
 mas.push(person6);
+const person7 = new Sensor(true);
+mas.push(person7);
 const el = document.querySelector('#sensors');
 const el2 = document.querySelectorAll('#inf');
 el.addEventListener('mouseover', function (event) {
@@ -154,6 +156,11 @@ document.addEventListener('visibilitychange', () => {
         console.log('User returned to the tab');
     }
 });
+document.querySelector('#creater').onclick=function (){
+    let varik= new Sensor(false);
+    mas.push(varik);
+    console.log(mas.length);
+};
 // window.addEventListener('beforeunload', (event) => {
 //     // Пользователь пытается перезагрузить страницу
 //     console.log('User is trying to reload the page');
