@@ -140,19 +140,20 @@ function doGrafik() {
 }
 setInterval(doGrafik, 2000);
 //просто на повыёбываться, отслеживание кнопок undo, reload, другая вкладка не на форме а в целом браузере
-// window.addEventListener('popstate', () => {
-//     // Пользователь нажал кнопку "Назад"
-//     console.log('User pressed the back button');
-// });
-// document.addEventListener('visibilitychange', () => {
-//     if (document.hidden) {
-//         // Пользователь переключился на другую вкладку
-//         console.log('User switched to a different tab');
-//     } else {
-//         // Пользователь вернулся на текущую вкладку
-//         console.log('User returned to the tab');
-//     }
-// });
+ window.addEventListener('popstate', (event) => {
+     event.preventDefault();
+     // Пользователь нажал кнопку "Назад"
+    console.log('User pressed the back button');
+ });
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        // Пользователь переключился на другую вкладку
+        console.log('User switched to a different tab');
+    } else {
+        // Пользователь вернулся на текущую вкладку
+        console.log('User returned to the tab');
+    }
+});
 // window.addEventListener('beforeunload', (event) => {
 //     // Пользователь пытается перезагрузить страницу
 //     console.log('User is trying to reload the page');
