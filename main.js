@@ -4,7 +4,7 @@ class Sensor {
         this.logs = 0;
         this.isOn = isOn;
         this.hasMenu = false;
-        this.switcher = true;
+        //this.switcher = true;
         this.Parent = document.querySelector('#sensors');
         this.Parent.classList.add('container');
         this.field = document.createElement('div');
@@ -33,7 +33,7 @@ class Sensor {
     switchColor() {
         if (this.isOn) {
             this.LED.classList.toggle('orange');
-            this.switcher = (this.switcher) ? false : true;
+           // this.switcher = (this.switcher) ? false : true;
         }
         else {
             this.logs = 0;
@@ -50,7 +50,7 @@ class Sensor {
     }
 }
 const mas = [];
-const person = new Sensor(true);
+let person = new Sensor(true);
 mas.push(person);
 const person2 = new Sensor(true);
 mas.push(person2);
@@ -64,17 +64,47 @@ const person6 = new Sensor(true);
 mas.push(person6);
 const person7 = new Sensor(true);
 mas.push(person7);
-const el = document.querySelector('#sensors');
-const el2 = document.querySelectorAll('#inf');
+const person8 = new Sensor(true);
+mas.push(person8);
+const person9 = new Sensor(true);
+mas.push(person9);
+let el = document.querySelector('#sensors');
+let el2 = document.querySelectorAll('#inf');
 el.addEventListener('mouseover', function (event) {
     el.style.backgroundColor = 'grey';
 });
 el.addEventListener('mouseleave', function (event) {
     el.style.backgroundColor = 'dimgrey';
 });
+document.getElementById('creater').onclick = function () {
+    let varik = new Sensor(true);
+    mas.push(varik);
+
+    el2 = document.querySelectorAll('#inf');
+    el2.forEach((element, index) => {
+        element.addEventListener('click', function () {
+            let curr=mas[index];
+            if (curr.hasMenu === true) {
+                document.querySelector('#menushka').remove();
+            }
+            else {
+                const button = document.createElement('button');
+                button.id = 'menushka';
+                button.innerText = 'Врубить';
+                element.parentElement.insertAdjacentElement('afterend', button);
+                //const sensorInstance = mas[element.parentElement.id];
+                button.onclick = function () {
+                    curr.toSwitch();
+                    button.innerText = curr.isOn ? 'Вырубить' : 'Врубить';
+                };
+            }
+            curr.hasMenu = !curr.hasMenu;
+        });
+    });
+};
 el2.forEach(element => {
     element.addEventListener('click', function () {
-        if (this.hasMenu === true) {
+        if (element.hasMenu === true) {
             document.querySelector('#menushka').remove();
         }
         else {
@@ -85,19 +115,10 @@ el2.forEach(element => {
             const sensorInstance = mas[element.parentElement.id];
             button.onclick = function () {
                 sensorInstance.toSwitch();
-                if (sensorInstance.isOn) {
-                    console.log('yes');
-                    button.innerText = 'Вырубить';
-
-                }
-
-                else {
-                    console.log('no');
-                    button.innerText = 'Врубить';
-                }
+                button.innerText = sensorInstance.isOn?'Вырубить':'Врубить';
             };
         }
-        this.hasMenu = !this.hasMenu;
+        element.hasMenu = !element.hasMenu;
     });
 });
 const canvas = document.querySelector('#myChart');
@@ -156,11 +177,6 @@ document.addEventListener('visibilitychange', () => {
         console.log('User returned to the tab');
     }
 });
-document.querySelector('#creater').onclick=function (){
-    let varik= new Sensor(false);
-    mas.push(varik);
-    console.log(mas.length);
-};
 // window.addEventListener('beforeunload', (event) => {
 //     // Пользователь пытается перезагрузить страницу
 //     console.log('User is trying to reload the page');
