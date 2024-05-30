@@ -178,6 +178,7 @@ document.addEventListener('visibilitychange', () => {
     }
 });
 // window.addEventListener('beforeunload', (event) => {
+
 //     // Пользователь пытается перезагрузить страницу
 //     console.log('User is trying to reload the page');
 
