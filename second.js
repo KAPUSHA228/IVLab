@@ -34,3 +34,8 @@ let div9 = document.createElement('div');
 div9.style.top = '60%';
 div9.style.left = '88%';
 document.querySelector('body').append(div9);
+document.querySelectorAll('div').forEach(element=>{
+    element.onclick=function (){
+        window.location.href = './third.html';
+    };
+})
