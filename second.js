@@ -1,6 +1,6 @@
 let div1 = document.createElement('div');
-div1.style.top = '68%';
-div1.style.left = '50%';
+div1.style.top = '440px';
+div1.style.left = '360px';
 document.querySelector('body').append(div1);
 let div2 = document.createElement('div');
 div2.style.top = '50%';
@@ -39,12 +39,45 @@ document.querySelectorAll('div').forEach(element => {
         window.location.href = './third.html';
     };
 });
-const canvas = document.querySelector('canvas');
-const ctx = canvas.getContext('2d');
-ctx.lineWidth=0.6;
-ctx.strokeStyle = 'black';
-ctx.moveTo(10, canvas.height); // Начальная точка шкалы
-ctx.lineTo(10,0); // Конечная точка шкалы
-ctx.moveTo(0, 10); // Начальная точка шкалы
-ctx.lineTo(canvas.width, 10); // Конечная точка шкалы
-ctx.stroke();
+function setup() {
+    createCanvas(1470, 700); // Создание Canvas
+     }
+
+function draw() {
+    background(0, 0, 0, 0); // Установка фона
+
+    let gridSize = 20; // Размер сетки
+    stroke(120); // Цвет линий сетки
+    for (let x = 0; x < width; x += gridSize) {
+        line(x, 0, x, height); // Вертикальные линии
+    }
+    for (let y = 0; y < height; y += gridSize) {
+        line(0, y, width, y); // Горизонтальные линии
+    } // Начальные и конечные координаты линии
+}
+// const canvas = document.querySelector('canvas');
+// const ctx = canvas.getContext('2d');
+// ctx.lineWidth=2;
+// ctx.fillStyle = 'rgba(0, 0, 0, 0)'; // Прозрачный цвет
+// ctx.fillRect(0, 0, canvas.width, canvas.height);
+// const gridSize = 7;
+
+// for (let x = 0; x < canvas.width; x += gridSize) {
+//     ctx.beginPath();
+//     ctx.moveTo(x, 0);
+//     ctx.lineTo(x, canvas.height);
+//     ctx.stroke();
+// }
+
+// for (let y = 0; y < canvas.height; y += gridSize) {
+//     ctx.beginPath();
+//     ctx.moveTo(0, y);
+//     ctx.lineTo(canvas.width, y);
+//     ctx.stroke();
+// }
+// ctx.strokeStyle = 'black';
+// ctx.moveTo(10, canvas.height); // Начальная точка шкалы
+// ctx.lineTo(10,0); // Конечная точка шкалы
+// ctx.moveTo(0, 10); // Начальная точка шкалы
+// ctx.lineTo(canvas.width, 10); // Конечная точка шкалы
+// ctx.stroke();
