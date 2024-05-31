@@ -1,24 +1,54 @@
 <!DOCTYPE html>
 <html>
-<head><title>карта сенсоров</title></head>
+
+<head>
+    <title>карта сенсоров</title>
+</head>
+
 <body>
+    <section id="sec1">размер каждой клетки (20х20)рх</section> <br>
+    <section id="sec2" style="top: 29px;left: 49px;"></section>
+    <section id="sec1" style="left: 70px; top:29px; width: 180px;"> - метка на каждые 100рх</section>
     <img src="https://reefcentral.ru/forum/uploads/gallery/album_166/gallery_1019_166_19116.jpg">
     <script src="second.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 </body>
 <style>
-    img{
+    section {
+        position: absolute;
+        z-index: 10;
+        left: 50px;
+    }
+
+    #sec1 {
+        height: 20px;
+        width: 225px;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: bisque;
+    }
+
+    #sec2 {
+        width: 20px;
+        height: 20px;
+        background-color: black;
+    }
+
+    img {
         position: absolute;
         top: -40%;
-        width: 100%;
-        height: 150%; 
-        z-index: -2;}
+        width: 1500px;
+        height: 1200px;
+        z-index: -2;
+    }
+
     canvas {
         width: 100%;
         height: 710px;
         z-index: 8;
         border: 1px solid #000;
     }
+
     body {
         display: flex;
         /* background-image: url('https://reefcentral.ru/forum/uploads/gallery/album_166/gallery_1019_166_19116.jpg'); */
@@ -32,6 +62,7 @@
         width: 100%;
         height: 100%;
     }
+
     div {
         position: absolute;
         display: flex;
