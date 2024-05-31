@@ -49,6 +49,7 @@ class Sensor {
         this.Parent.append(this.field);
     }
 }
+//const sqlite3 = require('sqlite3').verbose();
 const mas = [];
 let person = new Sensor(true);
 mas.push(person);
