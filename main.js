@@ -26,7 +26,7 @@ class Sensor {
     }
     updateRandomValue() {
         if (this.isOn) {
-            this.logs = Math.floor(Math.random() * 100);
+            this.logs = Math.floor(Math.random()*(30-0)+0);
             this.Info.textContent = this.logs;
         }
     }
@@ -141,7 +141,7 @@ function doGrafik() {
         }
     });
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillText('Колебания жопы (в пределах 100):', 40, 20);
+    ctx.fillText('Колебания всех сенсоров в целом (в пределах 30):', 40, 20);
     //метки на оси Y
     ctx.fillText('0', 5, canvas.height);
     ctx.fillText('25-', 1, canvas.height - 25);

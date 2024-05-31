@@ -41,10 +41,10 @@ document.querySelectorAll('div').forEach(element => {
 });
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
-ctx.lineWidth=0.5;
+ctx.lineWidth=0.6;
 ctx.strokeStyle = 'black';
-ctx.moveTo(30, canvas.height); // Начальная точка шкалы
-ctx.lineTo(30,0); // Конечная точка шкалы
+ctx.moveTo(10, canvas.height); // Начальная точка шкалы
+ctx.lineTo(10,0); // Конечная точка шкалы
 ctx.moveTo(0, 10); // Начальная точка шкалы
-ctx.lineTo(100, 10); // Конечная точка шкалы
+ctx.lineTo(canvas.width, 10); // Конечная точка шкалы
 ctx.stroke();
