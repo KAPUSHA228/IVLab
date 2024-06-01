@@ -4,7 +4,6 @@ class Sensor {
         this.logs = 0;
         this.isOn = isOn;
         this.hasMenu = false;
-        //this.switcher = true;
         this.Parent = document.querySelector('#sensors');
         this.Parent.classList.add('container');
         this.field = document.createElement('div');
@@ -33,7 +32,6 @@ class Sensor {
     switchColor() {
         if (this.isOn) {
             this.LED.classList.toggle('orange');
-           // this.switcher = (this.switcher) ? false : true;
         }
         else {
             this.logs = 0;
@@ -49,7 +47,6 @@ class Sensor {
         this.Parent.append(this.field);
     }
 }
-//const sqlite3 = require('sqlite3').verbose();
 const mas = [];
 let person = new Sensor(true);
 mas.push(person);
