@@ -10,7 +10,8 @@
     <section id="sec2" style="top: 29px;left: 49px;"></section>
     <section id="sec1" style="left: 70px; top:29px; width: 180px;"> - метка на каждые 100рх</section>
     <input type="text" placeholder="введите режим On/Off" id="in1">
-    <input type="text" placeholder="Введите место расположения на карте, в px" id="in2">
+    <input type="text" placeholder="Введите место для сенсора по горизонтали, в px" id="in2">
+    <input type="text" placeholder="Введите место для сенсора по вертикали, в px" id="in3">
     <button>добавить сенсор</button>
     <img src="https://reefcentral.ru/forum/uploads/gallery/album_166/gallery_1019_166_19116.jpg">
     <script src="second.js"></script>
@@ -33,7 +34,7 @@
         cursor:pointer;
         transition: all 1s;
         left: 50px;
-        top: 90px;
+        top: 110px;
     }
     button:hover {
     background-color: #2980b9;
@@ -48,7 +49,11 @@
     }
     #in2{
         top: 70px;
-        width: 280px;
+        width: 310px;
+    }
+    #in3{
+        top: 90px;
+        width: 310px;
     }
     section {
         z-index: 10;
@@ -70,9 +75,9 @@
     }
 
     img {
-        top: -40%;
-        width: 1500px;
-        height: 1200px;
+        top: -50%;
+        width: 100%;
+        height: 1500px;
         z-index: -2;
     }
 

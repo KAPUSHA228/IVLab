@@ -1,59 +1,61 @@
 i=0;
 let per=JSON.parse(localStorage.getItem('mas'));
+
+
 let div1 = document.createElement('div');
-div1.id=++i;
-console.log(div1.id);
 div1.style.top = '440px';
-div1.style.left = '760px';
+div1.style.left = '1360px';
 document.querySelector('body').append(div1);
 let div2 = document.createElement('div');
-div2.id=++i;
-div2.style.top = '320px';
-div2.style.left = '1040px';
+div2.style.top = '280px';
+div2.style.left = '1740px';
 document.querySelector('body').append(div2);
 let div3 = document.createElement('div');
-div3.id=++i;
-div3.style.top = '320px';
-div3.style.left = '1180px';
+div3.style.top = '280px';
+div3.style.left = '1960px';
 document.querySelector('body').append(div3);
 let div4 = document.createElement('div');
-div4.id=++i;
 div4.style.top = '460px';
-div4.style.left = '1040px';
+div4.style.left = '1740px';
 document.querySelector('body').append(div4);
 let div5 = document.createElement('div');
-div5.id=++i;
-div5.style.top = '400px';
-div5.style.left = '1220px';
+div5.style.top = '380px';
+div5.style.left = '2040px';
 document.querySelector('body').append(div5);
 let div6 = document.createElement('div');
-div6.id=++i;
 div6.style.top = '380px';
-div6.style.left = '1270px';
+div6.style.left = '2120px';
 document.querySelector('body').append(div6);
 let div7 = document.createElement('div');
-div7.id=++i;
-div7.style.top = '400px';
-div7.style.left = '1320px';
+div7.style.top = '380px';
+div7.style.left = '2200px';
 document.querySelector('body').append(div7);
 let div8 = document.createElement('div');
-div8.id=++i;
 div8.style.top = '460px';
-div8.style.left = '1380px';
+div8.style.left = '2300px';
 document.querySelector('body').append(div8);
 let div9 = document.createElement('div');
-div9.id=++i;
-div9.style.top = '540px';
-div9.style.left = '1340px';
+div9.style.top = '560px';
+div9.style.left = '2200px';
 document.querySelector('body').append(div9);
+div1.id=i++;
+div2.id=i++;
+div3.id=i++;
+div4.id=i++;
+div5.id=i++;
+div6.id=i++;
+div7.id=i++;
+div8.id=i++;
+div9.id=i++;
 
-let in2 = document.querySelector('#in2');
 let button = document.querySelector('button');
 button.onclick=function(){
     let in1 = document.querySelector('#in1');
     if(in1.value==="On"){
+        let in2 = document.querySelector('#in2');
 
     } else if (in1.value==="Off"){
+        let in2 = document.querySelector('#in2');
 
     }else{ 
         in1.value="";
