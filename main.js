@@ -47,7 +47,7 @@ class Sensor {
     }
 }
 const mas = [];
-let person = new Sensor(true);
+const person = new Sensor(true);
 mas.push(person);
 const person2 = new Sensor(true);
 mas.push(person2);
@@ -65,16 +65,16 @@ const person8 = new Sensor(true);
 mas.push(person8);
 const person9 = new Sensor(true);
 mas.push(person9);
-let el = document.querySelector('#sensors');
-let el2 = document.querySelectorAll('#inf');
-el.addEventListener('mouseover', function (event) {
-    el.style.backgroundColor = 'grey';
-});
-el.addEventListener('mouseleave', function (event) {
-    el.style.backgroundColor = 'dimgrey';
-});
 document.getElementById('creater').onclick = function () {
-    let varik = new Sensor(true);
+    if (document.querySelector('input').value === "On") {
+        const varik = new Sensor(true);
+    } else if (document.querySelector('input').value === "Off") {
+        const varik = new Sensor(false);
+    } else {
+        document.querySelector('input').value = "";
+        return; 
+    }
+    document.querySelector('input').value = "";
     mas.push(varik);
 
     el2 = document.querySelectorAll('#inf');
@@ -89,7 +89,6 @@ document.getElementById('creater').onclick = function () {
                 button.id = 'menushka';
                 button.innerText = 'Врубить';
                 element.parentElement.insertAdjacentElement('afterend', button);
-                //const sensorInstance = mas[element.parentElement.id];
                 button.onclick = function () {
                     curr.toSwitch();
                     button.innerText = curr.isOn ? 'Вырубить' : 'Врубить';
@@ -99,6 +98,15 @@ document.getElementById('creater').onclick = function () {
         });
     });
 };
+let el = document.querySelector('#sensors');
+let el2 = document.querySelectorAll('#inf');
+el.addEventListener('mouseover', function (event) {
+    el.style.backgroundColor = 'grey';
+});
+el.addEventListener('mouseleave', function (event) {
+    el.style.backgroundColor = 'dimgrey';
+});
+
 el2.forEach(element => {
     element.addEventListener('click', function () {
         if (element.hasMenu === true) {

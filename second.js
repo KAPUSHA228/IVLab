@@ -55,7 +55,7 @@ for (let grid = 289; grid < window.innerWidth - 20; grid += 100) {
 }
 function setup() {
     createCanvas(1470, 700); // Создание Canvas
-     }
+}
 
 function draw() {
     background(0, 0, 0, 0); // Установка фона
