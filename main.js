@@ -49,7 +49,7 @@ class Sensor {
 const mas = [];
 const person = new Sensor(true);
 mas.push(person);
-const person2 = new Sensor(true);
+const person2 = new Sensor(false);
 mas.push(person2);
 const person3 = new Sensor(true);
 mas.push(person3);
@@ -59,7 +59,7 @@ const person5 = new Sensor(true);
 mas.push(person5);
 const person6 = new Sensor(true);
 mas.push(person6);
-const person7 = new Sensor(true);
+const person7 = new Sensor(false);
 mas.push(person7);
 const person8 = new Sensor(true);
 mas.push(person8);
@@ -135,11 +135,11 @@ const maxValue = 200;
 const barWidth = canvas.width /40;//ширина палочек
 const barSpacing = 10;//расстояние между палочками
 ctx.fillStyle = 'rgb(96,130,192)';
-nums = [];
+let nums = [];
 function doGrafik() {
     let i = 0.5;
     if (nums.length === 16) { nums.shift(); }
-    mas2 = [];
+    let mas2 = [];
     mas.forEach((value) => {
         if (value.isOn) {
             mas2.push(value);
@@ -182,7 +182,7 @@ document.addEventListener('visibilitychange', () => {
         console.log('User returned to the tab');
     }
 });
-// window.addEventListener('beforeunload', (event) => {
+//window.addEventListener('beforeunload', (event) => {
 
 //     // Пользователь пытается перезагрузить страницу
 //     console.log('User is trying to reload the page');
@@ -191,4 +191,9 @@ document.addEventListener('visibilitychange', () => {
 //     event.preventDefault();
 //     event.returnValue = '';
 // });
+setInterval(()=>{
+    localStorage.setItem('mas',JSON.stringify(mas));
+},1000);
+function printer(){console.log(mas);}
+setInterval(printer,4000);
 

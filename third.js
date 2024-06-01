@@ -1,4 +1,5 @@
-const canvas = document.querySelector('canvas');
+let per=JSON.parse(localStorage.getItem('id'));
+if(per){const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 ctx.lineWidth = 0.6;
 ctx.strokeStyle = 'black';
@@ -31,4 +32,10 @@ function doGrafik() {
         ctx.fillRect(x, y, barWidth, value);
     })
 }
-setInterval(doGrafik, 2000);
+setInterval(doGrafik, 2000);}
+else{
+    const canvas = document.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
+    ctx.fillText('сенсор выключен', 40, 20);
+
+}
