@@ -69,29 +69,3 @@ function draw() {
         line(0, y, width, y); // Горизонтальные линии
     } // Начальные и конечные координаты линии
 }
-// const canvas = document.querySelector('canvas');
-// const ctx = canvas.getContext('2d');
-// ctx.lineWidth=2;
-// ctx.fillStyle = 'rgba(0, 0, 0, 0)'; // Прозрачный цвет
-// ctx.fillRect(0, 0, canvas.width, canvas.height);
-// const gridSize = 7;
-
-// for (let x = 0; x < canvas.width; x += gridSize) {
-//     ctx.beginPath();
-//     ctx.moveTo(x, 0);
-//     ctx.lineTo(x, canvas.height);
-//     ctx.stroke();
-// }
-
-// for (let y = 0; y < canvas.height; y += gridSize) {
-//     ctx.beginPath();
-//     ctx.moveTo(0, y);
-//     ctx.lineTo(canvas.width, y);
-//     ctx.stroke();
-// }
-// ctx.strokeStyle = 'black';
-// ctx.moveTo(10, canvas.height); // Начальная точка шкалы
-// ctx.lineTo(10,0); // Конечная точка шкалы
-// ctx.moveTo(0, 10); // Начальная точка шкалы
-// ctx.lineTo(canvas.width, 10); // Конечная точка шкалы
-// ctx.stroke();

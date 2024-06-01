@@ -17,7 +17,6 @@ class Sensor {
         this.render();
         setInterval(() => this.switchColor(), 1000);
         setInterval(() => this.updateRandomValue(), 2000);
-        // setInterval(() => this.toSwitch(), 4000);
     }
     toSwitch() {
         this.isOn = !this.isOn;
