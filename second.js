@@ -1,7 +1,10 @@
-i=0;
+let i=0;
 let per=JSON.parse(localStorage.getItem('mas'));
-
-
+let masOfOn=[];
+per.forEach(element=>{
+    masOfOn.push(element.isOn);
+});
+console.log(masOfOn);
 let div1 = document.createElement('div');
 div1.style.top = '440px';
 div1.style.left = '1360px';
@@ -51,23 +54,40 @@ div9.id=i++;
 let button = document.querySelector('button');
 button.onclick=function(){
     let in1 = document.querySelector('#in1');
-    if(in1.value==="On"){
-        let in2 = document.querySelector('#in2');
-
-    } else if (in1.value==="Off"){
-        let in2 = document.querySelector('#in2');
-
-    }else{ 
-        in1.value="";
+    let in2 = document.querySelector('#in2');
+    let in3 = document.querySelector('#in3');
+    if(in2.value!=="" && in3.value!=="" && 
+    !isNaN(in3.value) && !isNaN(in2.value)){ 
+        console.log('yes');
+        if(in1.value==="On"){
+            masOfOn.push(true);
+            let div = document.createElement('div');
+            div.style.top = in3.value+'px';
+            div.style.left = in2.value+'px';
+            document.querySelector('body').append(div);
+            div.id=i++;
+        } else if (in1.value==="Off"){
+            masOfOn.push(false);
+            let div = document.createElement('div');
+            div.style.top = in3.value+'px';
+            div.style.left = in2.value+'px';
+            document.querySelector('body').append(div);
+            div.id=i++;
+        }else{
+            return;
+        }
+    }
+    else{
         return;
     }
+    console.log(masOfOn);
 }
-document.querySelectorAll('div').forEach(element => {
+setInterval(()=>{document.querySelectorAll('div').forEach(element => {
     element.onclick = function (event) {
-        localStorage.setItem('id',per[event.target.id].isOn);
+        localStorage.setItem('isOn',masOfOn[event.target.id]);
         window.location.href = './third.html';
     };
-});
+})},1000);
 //проставление ориентиров
 for (let grid = 89; grid < window.innerHeight-20; grid+=100) {
     const klmn=document.createElement('section');

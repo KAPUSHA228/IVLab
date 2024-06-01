@@ -194,6 +194,7 @@ document.addEventListener('visibilitychange', () => {
 setInterval(()=>{
     localStorage.setItem('mas',JSON.stringify(mas));
 },1000);
-function printer(){console.log(mas);}
-setInterval(printer,4000);
+// function printer(){console.log(mas);}
+// setInterval(printer,4000);
+localStorage.setItem('sensor',JSON.stringify(Sensor));
 

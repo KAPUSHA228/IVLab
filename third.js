@@ -1,6 +1,7 @@
-let per=JSON.parse(localStorage.getItem('id'));
-if(per){const canvas = document.querySelector('canvas');
-const ctx = canvas.getContext('2d');
+let per=JSON.parse(localStorage.getItem('isOn'));
+if(per){
+    const canvas = document.querySelector('canvas');
+    const ctx = canvas.getContext('2d');
 ctx.lineWidth = 0.6;
 ctx.strokeStyle = 'black';
 const canvasStyles = getComputedStyle(canvas);
@@ -9,7 +10,7 @@ canvas.height += 50;
 const maxValue = 200;
 const barWidth = canvas.width / 40;//ширина палочек
 const barSpacing = 10;//расстояние между палочками
-nums = [];
+let nums = [];
 function doGrafik() {
     let i = 0.5;
     if (nums.length === 16) { nums.shift(); }
