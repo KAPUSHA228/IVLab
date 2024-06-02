@@ -54,28 +54,27 @@ div9.id=i++;
 let button = document.querySelector('button');
 button.onclick=function(event){
     event.preventDefault(); //на всякий пожарный чтоб форма не обновлялась
-    let in1 = document.querySelector('#in1');
+    let ch = document.querySelector('#check');
     let in2 = document.querySelector('#in2');
     let in3 = document.querySelector('#in3');
     if(in2.value!=="" && in3.value!=="" && 
     !isNaN(in3.value) && !isNaN(in2.value)){ 
-        if(in1.value==="On"){
+        if(ch.checked){
             masOfOn.push(true);
             let div = document.createElement('div');
             div.style.top = in3.value+'px';
             div.style.left = in2.value+'px';
             document.querySelector('body').append(div);
             div.id=i++;
-        } else if (in1.value==="Off"){
+        } else{
             masOfOn.push(false);
             let div = document.createElement('div');
             div.style.top = in3.value+'px';
             div.style.left = in2.value+'px';
             document.querySelector('body').append(div);
             div.id=i++;
-        }else{ return; }
-            in1.value="";
-            in1.focus();
+        }
+            //ch.focus();
     }
     else{
         return;
