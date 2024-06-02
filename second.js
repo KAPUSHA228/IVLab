@@ -4,7 +4,7 @@ let masOfOn=[];
 per.forEach(element=>{
     masOfOn.push(element.isOn);
 });
-console.log(masOfOn);
+//console.log(masOfOn);
 let div1 = document.createElement('div');
 div1.style.top = '440px';
 div1.style.left = '1360px';
@@ -52,13 +52,13 @@ div8.id=i++;
 div9.id=i++;
 
 let button = document.querySelector('button');
-button.onclick=function(){
+button.onclick=function(event){
+    event.preventDefault(); //на всякий пожарный чтоб форма не обновлялась
     let in1 = document.querySelector('#in1');
     let in2 = document.querySelector('#in2');
     let in3 = document.querySelector('#in3');
     if(in2.value!=="" && in3.value!=="" && 
     !isNaN(in3.value) && !isNaN(in2.value)){ 
-        console.log('yes');
         if(in1.value==="On"){
             masOfOn.push(true);
             let div = document.createElement('div');
@@ -73,14 +73,14 @@ button.onclick=function(){
             div.style.left = in2.value+'px';
             document.querySelector('body').append(div);
             div.id=i++;
-        }else{
-            return;
-        }
+        }else{ return; }
+            in1.value="";
+            in1.focus();
     }
     else{
         return;
     }
-    console.log(masOfOn);
+   // console.log(masOfOn);
 }
 setInterval(()=>{document.querySelectorAll('div').forEach(element => {
     element.onclick = function (event) {
