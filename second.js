@@ -37,6 +37,7 @@ let div8 = document.createElement('div');
 div8.style.top = '460px';
 div8.style.left = '2300px';
 document.querySelector('body').append(div8);
+document.querySelector('body').removeChild(div1);
 let div9 = document.createElement('div');
 div9.style.top = '560px';
 div9.style.left = '2200px';
@@ -50,6 +51,43 @@ div6.id=i++;
 div7.id=i++;
 div8.id=i++;
 div9.id=i++;
+let z=true;
+
+window.addEventListener('popstate', (event) => {
+     event.preventDefault();
+     // Пользователь нажал кнопку "Назад"
+    console.log('User pressed the back button');
+ });
+document.querySelector('img').addEventListener("click",function(){
+    const styleSheet = document.styleSheets[0]; // Получаем первый CSS стиль на странице
+    const rules = styleSheet.cssRules || styleSheet.rules;
+    document.querySelectorAll('#reverser').forEach((value) => {console.log(value);})
+    for (let i = 0; i < rules.length; i++) {
+        if (rules[i].selectorText === '.vis') {
+            if(z){
+                rules[i].style.removeProperty('display');
+                document.querySelector('#reverser').style.display="none";
+            }
+            else{
+                document.querySelector('#reverser').style.removeProperty('display');
+                rules[i].style.display="none";
+
+            }
+            break;
+        }
+    }
+    z=!z;
+});
+let btn=document.createElement('button');
+btn.style.position="absolute;"
+btn.id="reverser";
+btn.style.height="100px";
+btn.style.width="200px";
+btn.style.position="absolute";
+btn.style.left="20px";
+btn.style.top ="20px";
+btn.innerText='Назад к секциям';
+document.querySelector('body').append(btn);
 
 let button = document.querySelector('button');
 button.onclick=function(event){

@@ -1,6 +1,7 @@
 class Sensor {
     static counter = 0;
-    constructor(isOn) {
+    constructor(isOn, type) {
+        this.type=type;
         this.logs = 0;
         this.isOn = isOn;
         this.hasMenu = false;
@@ -24,7 +25,22 @@ class Sensor {
     }
     updateRandomValue() {
         if (this.isOn) {
-            this.logs = Math.floor(Math.random()*(30-0)+0);
+            switch (this.type) {
+                case "temp":
+                    this.logs = Math.floor(Math.random()*(30-0)+0);
+                    break;
+                case "oxygen":
+                    this.logs = Math.floor(Math.random()*(10-0)+0);
+                    break;
+                case "electro":
+                    this.logs = Math.floor(Math.random()*(50-0)+0);
+                    break;
+                case "water":
+                    this.logs = Math.floor(Math.random()*(1-0)+0);
+                    break;
+                default:
+                    break;
+            }
             this.Info.textContent = this.logs;
         }
     }
@@ -40,6 +56,7 @@ class Sensor {
         }
     }
     render() {
+        //console.log(this.type);
         this.Info.textContent = this.logs;
         this.field.append(this.LED);
         this.field.append(this.Info);
@@ -47,23 +64,23 @@ class Sensor {
     }
 }
 const mas = [];
-const person = new Sensor(true);
+const person = new Sensor(true,"temp");
 mas.push(person);
-const person2 = new Sensor(false);
+const person2 = new Sensor(false,"temp");
 mas.push(person2);
-const person3 = new Sensor(true);
+const person3 = new Sensor(true,"temp");
 mas.push(person3);
-const person4 = new Sensor(true);
+const person4 = new Sensor(true,"temp");
 mas.push(person4);
-const person5 = new Sensor(true);
+const person5 = new Sensor(true,"temp");
 mas.push(person5);
-const person6 = new Sensor(true);
+const person6 = new Sensor(true,"temp");
 mas.push(person6);
-const person7 = new Sensor(false);
+const person7 = new Sensor(false,"temp");
 mas.push(person7);
-const person8 = new Sensor(true);
+const person8 = new Sensor(true,"temp");
 mas.push(person8);
-const person9 = new Sensor(true);
+const person9 = new Sensor(true,"temp");
 mas.push(person9);
 document.getElementById('creater').onclick = function () {
     if (document.querySelector('input').value === "On") {
@@ -87,7 +104,7 @@ document.getElementById('creater').onclick = function () {
             else {
                 const button = document.createElement('button');
                 button.id = 'menushka';
-                button.innerText = 'Врубить';
+                //button.innerText = curr.isOn ? 'Вырубить' : 'Врубить';   
                 element.parentElement.insertAdjacentElement('afterend', button);
                 button.onclick = function () {
                     curr.toSwitch();
@@ -130,7 +147,7 @@ const canvas = document.querySelector('#myChart');
 const ctx = canvas.getContext('2d');
 const canvasStyles = getComputedStyle(canvas);
 const canvasHeight = parseInt(canvasStyles.getPropertyValue('height'), 10);
-canvas.height += 50;
+canvas.style.height += 50;
 const maxValue = 200;
 const barWidth = canvas.width /40;//ширина палочек
 const barSpacing = 10;//расстояние между палочками
@@ -149,16 +166,16 @@ function doGrafik() {
     ctx.fillText('Колебания всех сенсоров в целом (в пределах 30):', 40, 20);
     //метки на оси Y
     ctx.fillText('0', 5, canvas.height);
-    ctx.fillText('25-', 1, canvas.height - 25);
-    ctx.fillText('50-', 1, canvas.height - 50);
-    ctx.fillText('75-', 1, canvas.height - 75);
-    ctx.fillText('100-', 1, canvas.height - 100);
+    ctx.fillText('10-', 1, canvas.height - 25);
+    ctx.fillText('20-', 1, canvas.height - 50);
+    ctx.fillText('30-', 1, canvas.height - 75);
+    ctx.fillText('40-', 1, canvas.height - 100);
     ctx.moveTo(0, canvas.height); // Начальная точка шкалы
     ctx.lineTo(0, 50); // Конечная точка шкалы
     ctx.stroke();
     let average = 0;
     mas2.forEach((value) => { average += value.logs; });
-    const barHeight = average / mas2.length;
+    const barHeight = 2.6*average / mas2.length;
     nums.push(barHeight);
     nums.forEach((value) => {
         const x = ++i * (barWidth + barSpacing);
@@ -167,7 +184,7 @@ function doGrafik() {
     })
 }
 setInterval(doGrafik, 2000);
-//просто на повыёбываться, отслеживание кнопок undo, reload, другая вкладка не на форме а в целом браузере
+//отслеживание кнопок undo, reload, другая вкладка не на форме а в целом браузере
  window.addEventListener('popstate', (event) => {
      event.preventDefault();
      // Пользователь нажал кнопку "Назад"
