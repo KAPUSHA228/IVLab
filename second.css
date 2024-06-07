@@ -6,9 +6,10 @@ div {
     position: absolute;
 }
 
-.vis{ 
+.vis {
     display: none;
 }
+
 #check {
     position: absolute;
     height: 15px;

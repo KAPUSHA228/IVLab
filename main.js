@@ -84,15 +84,14 @@ const person9 = new Sensor(true,"temp");
 mas.push(person9);
 document.getElementById('creater').onclick = function () {
     if (document.querySelector('input').value === "On") {
-        const varik = new Sensor(true);
+            mas.push(new Sensor(true, "temp"));
     } else if (document.querySelector('input').value === "Off") {
-        const varik = new Sensor(false);
+            mas.push(new Sensor(false, "temp"));
     } else {
         document.querySelector('input').value = "";
         return; 
     }
     document.querySelector('input').value = "";
-    mas.push(varik);
 
     el2 = document.querySelectorAll('#inf');
     el2.forEach((element, index) => {
