@@ -88,19 +88,21 @@ document.querySelectorAll('.sect').forEach(element => {
         const rules = styleSheet.cssRules || styleSheet.rules;
         switch(event.target.id){
             case "sec1":
-                ban[0].style.removeProperty('display');
-                break;
-            case "sec2":
                 ban[1].style.removeProperty('display');
                 ban[2].style.removeProperty('display');
                 ban[3].style.removeProperty('display');
+                
                 break;
-            case "sec3":
+            case "sec2":
                 ban[4].style.removeProperty('display');
                 ban[5].style.removeProperty('display');
                 ban[6].style.removeProperty('display');
                 ban[7].style.removeProperty('display');
                 ban[8].style.removeProperty('display');
+                
+                break;
+            case "sec3":
+                ban[0].style.removeProperty('display');
                 break;
         }
             for (let i = 0; i < rules.length; i++) {
@@ -138,9 +140,11 @@ if (button !== null) {
         let in3 = document.querySelector('#in3');
         if (in2.value !== "" && in3.value !== "" &&
             !isNaN(in3.value) && !isNaN(in2.value)) {
+                console.log("yes");
             if (ch.checked) {
                 masOfOn.push(true);
                 let div = document.createElement('div');
+                div.classList.add("sens");
                 div.style.top = in3.value + 'px';
                 div.style.left = in2.value + 'px';
                 document.querySelector('body').append(div);
@@ -148,6 +152,7 @@ if (button !== null) {
             } else {
                 masOfOn.push(false);
                 let div = document.createElement('div');
+                div.classList.add("sens");
                 div.style.top = in3.value + 'px';
                 div.style.left = in2.value + 'px';
                 document.querySelector('body').append(div);

@@ -5,7 +5,7 @@
       "previewLimit": 50,
       "driver": "SQLite",
       "name": "localLite",
-      "database": "D:\\games\\sqlitestudio\\projects\\sensors"
+      "database": "D:\\Games\\java\\дз джава\\demo\\sensors"
     }
   ]
 }

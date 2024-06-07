@@ -9,7 +9,11 @@ div {
 .vis {
     display: none;
 }
-
+.sect{
+    height: 80px;
+    width: 225px;
+    background-color: darkgoldenrod;
+}
 #check {
     position: absolute;
     height: 15px;
