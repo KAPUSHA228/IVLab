@@ -52,12 +52,13 @@ div8.style.left = '2300px';
 div8.classList.add("sens");
 
 document.querySelector('body').append(div8);
-//document.querySelector('body').removeChild(div1);
+
 let div9 = document.createElement('div');
 div9.style.top = '560px';
 div9.style.left = '2200px';
 div9.classList.add("sens");
 document.querySelector('body').append(div9);
+
 div1.id = i++;
 div2.id = i++;
 div3.id = i++;
@@ -67,19 +68,41 @@ div6.id = i++;
 div7.id = i++;
 div8.id = i++;
 div9.id = i++;
+
 document.querySelectorAll(".sens").forEach(value => {
     value.style.display = "none";
 });
+
 window.addEventListener('popstate', (event) => {
     event.preventDefault();
     // Пользователь нажал кнопку "Назад"
     console.log('User pressed the back button');
 });
 document.querySelectorAll('.sect').forEach(element => {
-    element.addEventListener("click", function () {
+    element.addEventListener("click", function (event) {
+
+        let ban=document.querySelectorAll(".sens");
+        
         const styleSheet = document.styleSheets[0];
         // Получаем первый CSS стиль на странице
         const rules = styleSheet.cssRules || styleSheet.rules;
+        switch(event.target.id){
+            case "sec1":
+                ban[0].style.removeProperty('display');
+                break;
+            case "sec2":
+                ban[1].style.removeProperty('display');
+                ban[2].style.removeProperty('display');
+                ban[3].style.removeProperty('display');
+                break;
+            case "sec3":
+                ban[4].style.removeProperty('display');
+                ban[5].style.removeProperty('display');
+                ban[6].style.removeProperty('display');
+                ban[7].style.removeProperty('display');
+                ban[8].style.removeProperty('display');
+                break;
+        }
             for (let i = 0; i < rules.length; i++) {
                 if (rules[i].selectorText === '.vis') {
                     rules[i].style.removeProperty('display');
@@ -153,6 +176,9 @@ if (reverser !== null) {
         document.querySelector('#sec1').style.removeProperty('display');
         document.querySelector('#sec2').style.removeProperty('display');
         document.querySelector('#sec3').style.removeProperty('display');
+        document.querySelectorAll(".sens").forEach(value => {
+            value.style.display = "none";
+        });
     };
 }
 setInterval(() => {
